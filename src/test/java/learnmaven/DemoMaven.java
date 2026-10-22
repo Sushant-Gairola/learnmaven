@@ -8,6 +8,8 @@ public class DemoMaven {
 	
 	// Practising feature branches in Git
 	
+	// Practising git status command
+	
 	@Test
 	public void testHello() {
 		
