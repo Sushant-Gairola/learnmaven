@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 
 public class DemoMaven {
 	
+	// Learning Git and GitHub workflow
+	
 	@Test
 	public void testHello() {
 		
