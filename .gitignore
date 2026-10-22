@@ -1,0 +1,8 @@
+# Maven build output
+target/
+
+# TestNG output
+test-output/
+
+# Eclipse workspace metadata
+.metadata/
