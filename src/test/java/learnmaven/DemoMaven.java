@@ -6,6 +6,8 @@ public class DemoMaven {
 	
 	// Learning Git and GitHub workflow
 	
+	// Practising feature branches in Git
+	
 	@Test
 	public void testHello() {
 		
