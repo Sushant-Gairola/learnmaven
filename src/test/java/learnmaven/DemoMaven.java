@@ -10,6 +10,8 @@ public class DemoMaven {
 	
 	// Practising git status command
 	
+	// Practising GitHub Pull Request workflow
+	
 	@Test
 	public void testHello() {
 		
