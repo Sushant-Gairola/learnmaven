@@ -7,10 +7,15 @@ import org.testng.annotations.BeforeMethod;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BaseTest {
 	
 	protected WebDriver driver;
+	
+	protected Logger logger = LogManager.getLogger(BaseTest.class);
+	
 	Properties prop;
 	
 	public void loadConfig() throws IOException {
@@ -25,7 +30,7 @@ public class BaseTest {
 	    fis.close();
 	}
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setup() throws IOException {
     	
     	loadConfig();
@@ -36,20 +41,30 @@ public class BaseTest {
         String browser = prop.getProperty("browser");
 
         if (browser.equalsIgnoreCase("chrome")) {
-            driver = new ChromeDriver();
+            driver = new ChromeDriver();            
+            logger.info("Chrome browser launched successfully");
         }
         
-        driver.manage().window().maximize();
+        
+        //driver.manage().window().maximize();        
+        //logger.info("Browser window maximized");
+        logger.info("Using default browser window size");
 
         driver.get(prop.getProperty("url"));
+        logger.info("Application URL opened successfully");
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
 
         if (driver != null) {
             driver.quit();
+            logger.info("Browser closed successfully");
         }
+    }
+    
+    public WebDriver getDriver() {
+        return driver;
     }
 
 }

@@ -2,13 +2,18 @@ package learnmaven.tests;
 
 import java.io.IOException;
 
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import learnmaven.pages.LoginPage;
 import learnmaven.utilities.ExcelUtils;
+import learnmaven.listeners.TestListener;
 
+
+@Listeners(TestListener.class)
 public class ExcelLoginTest extends BaseTest {
 
     @DataProvider(name = "loginData")
@@ -20,7 +25,7 @@ public class ExcelLoginTest extends BaseTest {
         return ExcelUtils.getExcelData(filePath, "Sheet1");
     }
 
-    @Test(dataProvider = "loginData")
+    @Test(dataProvider = "loginData", groups = {"regression"})
     public void verifyLogin(String username, String password, String expectedResult) {
 
         LoginPage loginPage = new LoginPage(driver);
@@ -45,4 +50,11 @@ public class ExcelLoginTest extends BaseTest {
             );
         }
     }
+    
+  /* @Test
+      public void screenshotTest() {
+
+        Assert.fail("Intentional failure to test screenshot capture");
+
+    }*/
 }

@@ -6,3 +6,7 @@ test-output/
 
 # Eclipse workspace metadata
 .metadata/
+
+# Automation runtime output
+logs/
+screenshots/
