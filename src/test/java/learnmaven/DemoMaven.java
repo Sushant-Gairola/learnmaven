@@ -12,7 +12,7 @@ public class DemoMaven {
 	
 	// Practising GitHub Pull Request workflow
 	
-	@Test
+	@Test(groups = {"regression"})
 	public void testHello() {
 		
 		System.out.println("Welcome to Maven World");
