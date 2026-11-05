@@ -47,6 +47,7 @@ public class BaseTest {
         	options.addArguments("--headless");
         	options.addArguments("--disable-gpu");
         	options.addArguments("--window-size=1365,768");
+        	options.setCapability("pageLoadStrategy", "eager");
 
         	driver = new ChromeDriver(options);
             //driver = new ChromeDriver();
