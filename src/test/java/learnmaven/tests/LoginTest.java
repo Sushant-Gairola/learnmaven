@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
 	
 	
 	
-	@Test
+	@Test(groups = {"regression"})
 	public void verifyValidLogin() {		
 		
               
@@ -31,7 +31,7 @@ public class LoginTest extends BaseTest {
 
 	
 	
-	@Test
+	@Test(groups = {"regression"})
 	public void verifyInvalidLogin() {
 	    
 
