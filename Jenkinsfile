@@ -8,12 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Build and Test') {
             steps {
                 bat 'mvn clean test -Dtest=DemoMaven -Dgroups=regression'
