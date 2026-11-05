@@ -2,6 +2,7 @@ package learnmaven.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import java.io.FileInputStream;
@@ -41,7 +42,15 @@ public class BaseTest {
         String browser = prop.getProperty("browser");
 
         if (browser.equalsIgnoreCase("chrome")) {
-            driver = new ChromeDriver();            
+        	
+        	ChromeOptions options = new ChromeOptions();
+        	options.addArguments("--headless");
+        	options.addArguments("--disable-gpu");
+        	options.addArguments("--window-size=1365,768");
+
+        	driver = new ChromeDriver(options);
+            //driver = new ChromeDriver();
+        	
             logger.info("Chrome browser launched successfully");
         }
         
